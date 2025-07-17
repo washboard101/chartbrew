@@ -1,3 +1,4 @@
+# TEST-COMPOSE-2025-07-17
 services:
   db:
     image: mysql:8.4
