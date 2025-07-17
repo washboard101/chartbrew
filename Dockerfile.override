@@ -1,0 +1,11 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npm run build
+
+# The serve command with proper port listen argument to fix your issue:
+CMD ["npx", "serve", "-s", "build", "-l", "4018"]
