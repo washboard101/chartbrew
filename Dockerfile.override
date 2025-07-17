@@ -1,11 +1,16 @@
 FROM node:18-alpine
 
+# Set workdir
 WORKDIR /app
 
+# Copy all source files into workdir
 COPY . .
 
+# Install dependencies
 RUN npm install
+
+# Build the frontend (this runs the vite build)
 RUN npm run build
 
-# The serve command with proper port listen argument to fix your issue:
+# Start frontend with serve on port 4018
 CMD ["npx", "serve", "-s", "build", "-l", "4018"]
