@@ -27,9 +27,18 @@ services:
       - 6379:6379
 
   chartbrew:
-    build: .
+    image: chartbrew/chartbrew:latest
     restart: unless-stopped
     env_file: .env
+    environment:
+      - PORT=3000
+      - CB_DB_HOST=${CB_DB_HOST}
+      - CB_DB_NAME=${CB_DB_NAME}
+      - CB_DB_USERNAME=${CB_DB_USERNAME}
+      - CB_DB_PASSWORD=${CB_DB_PASSWORD}
+      - CB_DB_PORT=${CB_DB_PORT}
+      - CB_ENCRYPTION_KEY=${CB_ENCRYPTION_KEY}
+      - CB_REDIS_PASSWORD=${CB_REDIS_PASSWORD}
     ports:
       # Feel free to remap these ports on the left side to your desired ports.
       # If you do change these ports you also need to update them in the VITE_APP_CLIENT_HOST and VITE_APP_API_HOST variables in your .env file
