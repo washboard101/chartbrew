@@ -27,7 +27,7 @@ services:
       - 6379:6379
 
   chartbrew:
-    image: chartbrew/chartbrew:latest
+    image: chartbrew/chartbrew
     restart: unless-stopped
     env_file: .env
     environment:
